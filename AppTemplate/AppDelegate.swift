@@ -1,5 +1,6 @@
 import UIKit
 import SwiftUI
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -9,11 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.application = application
-//        onGameStart()
-//        return true
         
-        showLoadingScreen()
-        initApp()
+//        showLoadingScreen()
+//        initApp()
+        onGameStart()
         
         if let notification = launchOptions?[.remoteNotification] as? [AnyHashable: Any] {
             onPushRecieved(content: notification)
@@ -23,25 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func onGameStart()
     {
-        // Здесь происходит инициализация главного View
-        // InitialView нужно заменить на ваш главный View
         let contentView = CustomHostingController(rootView: ContentView())
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = contentView
 
-        // Также, контроль ориентации происходит за счет класса OrientationHelper
-        // Ориентация задается за счет переменной orientaionMask
-        // Если нужно отключить автоповорот, то нужно установить isAutoRotationEnabled в false
         OrientationHelper.orientaionMask = UIInterfaceOrientationMask.portrait
         OrientationHelper.isAutoRotationEnabled = false
 
-        // Вся остальная логика приложения, которая должна быть выполнена до загрузки главного View
-        // должна быть выполнена здесь. Например, инициализация аудио
-        
-
-        ///////////////////////////////
-
-        // Показываем главный View
         window?.makeKeyAndVisible()
     }
 }

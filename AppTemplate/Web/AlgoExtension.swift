@@ -74,10 +74,6 @@ extension AppDelegate : UNUserNotificationCenterDelegate, MessagingDelegate
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("FCM token updated: \(fcmToken ?? "nil")")
-        
-        //        if let fcmToken = fcmToken {
-        //            onTokenRecieved(token: fcmToken)
-        //        }
     }
     
     func application(_ application: UIApplication,
